@@ -1,3 +1,5 @@
+// src/components/ChatCard.tsx
+
 import { AccessTime, AccountCircle, Update } from "@mui/icons-material";
 import {
   Avatar,
@@ -22,6 +24,7 @@ type ChatCardProps = {
   updated_at: string;
   handleChatClick: () => void;
 };
+
 export default function ChatCard({
   id,
   userId,
@@ -38,30 +41,25 @@ export default function ChatCard({
   };
   return (
     <>
-      <Card elevation={2} sx={{ padding: 1 }}>
+      <Card elevation={2} sx={{ padding: 1 }} data-testid={`chat-card-${id}`}>
         <CardContent>
-          <Typography variant="h6"> Session Id: {id}</Typography>
+          <Typography variant="h6" data-testid={`session-id-${id}`}> Session Id: {id}</Typography>
           <hr />
           <Grid container spacing={2}>
-            <Grid size={{ xs: 12, md: 4 }} display={"flex"} alignItems={"center"} gap={1}>
-
+            <Grid size={{ xs: 12, md: 4 }} display={"flex"} alignItems={"center"} gap={1} data-testid={`created-at-${id}`}>
               <AccessTime />
               Created At: {dayjs(created_at).format("YYYY-MM-DD HH:mm:ss")}
-
             </Grid>
-            <Grid size={{ xs: 12, md: 4 }} display={"flex"} alignItems={"center"} gap={1}>
-
-              <Update /> Updated At:{" "}
-              {dayjs(updated_at).format("YYYY-MM-DD HH:mm:ss")}
+            <Grid size={{ xs: 12, md: 4 }} display={"flex"} alignItems={"center"} gap={1} data-testid={`updated-at-${id}`}>
+              <Update /> Updated At: {dayjs(updated_at).format("YYYY-MM-DD HH:mm:ss")}
             </Grid>
-            <Grid size={{ xs: 12, md: 4 }} display={"flex"} alignItems={"center"} gap={1}>
-
+            <Grid size={{ xs: 12, md: 4 }} display={"flex"} alignItems={"center"} gap={1} data-testid={`user-id-${id}`}>
               <AccountCircle />
               User Id: {userId}
             </Grid>
           </Grid>
         </CardContent>
-        <CardActions sx={{ cursor: "pointer" }} onClick={() => handleClick()}>
+        <CardActions sx={{ cursor: "pointer" }} onClick={() => handleClick()} data-testid={`chat-message-${id}`}>
           <Box
             sx={{
               borderRadius: "20px",
@@ -76,8 +74,7 @@ export default function ChatCard({
               {chat_message?.role?.toUpperCase()?.charAt(0)}
             </Avatar>
             <Typography variant="body1" fontWeight={600}>
-              {chat_message?.role?.toUpperCase()}:{" "}
-              {chat_message?.message_content}
+              {chat_message?.role?.toUpperCase()}: {chat_message?.message_content}
             </Typography>
           </Box>
         </CardActions>

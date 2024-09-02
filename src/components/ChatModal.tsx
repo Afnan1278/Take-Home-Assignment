@@ -7,8 +7,8 @@ type ChatModalProps = {
   open: boolean;
   setOpen: (open: boolean) => void;
 };
-export default function ChatModal({ open, setOpen }: ChatModalProps) {
 
+export default function ChatModal({ open, setOpen }: ChatModalProps) {
   return (
     <Modal
       open={open}
@@ -33,7 +33,11 @@ export default function ChatModal({ open, setOpen }: ChatModalProps) {
               justifyContent: "flex-end",
             }}
           >
-            <Close sx={{ cursor: "pointer" }} onClick={() => setOpen(false)} />
+            <Close
+              sx={{ cursor: "pointer" }}
+              onClick={() => setOpen(false)}
+              data-testid="close-icon"
+            />
           </Box>
           <ChatMessages />
         </Card>

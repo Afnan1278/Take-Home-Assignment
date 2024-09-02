@@ -38,10 +38,12 @@ const ChatSessionList: React.FC<ChatSessionListProps> = ({
                             chat_messages={item?.chat_messages}
                             created_at={item.created_at}
                             updated_at={item.updated_at}
+                            data-testid={`chat-card-${item.id}`}
+
                         />
                     ))
                 ) : (
-                    <Typography>No chat session available</Typography>
+                    <Typography data-testid="no-chat-session">No chat session available</Typography>
                 )}
             </Stack>
         </Box>
