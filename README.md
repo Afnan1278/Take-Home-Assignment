@@ -5,6 +5,11 @@ This project is a web application for managing chat sessions. It provides featur
 ## To install the project dependencies, run:
 npm install
 
+## Adding Environment Variables
+Create a file named .env in the root directory of the project and add the base url:
+
+REACT_APP_BACKEND_URL: add_url_here
+
 ## To start the development server, run:
 npm start
 
@@ -35,7 +40,7 @@ Manage chat sessions through a user-friendly interface.
 
 5. Environment Configuration: Environment-specific configurations are managed using .env files. The backend URL is configured in the .env file.
 
-6. Code Quality: We enforce code quality and consistency using ESLint with the react-app and react-app/jest configurations.
+6. Code Quality: We enforce code quality and consistency using ESLint with the react-app and prettier for formatting.
 
 
 
