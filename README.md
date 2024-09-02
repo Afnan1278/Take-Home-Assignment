@@ -7,6 +7,7 @@ npm install
 
 ## Adding Environment Variables
 Create a file named .env in the root directory of the project and add the base url:
+
 REACT_APP_BACKEND_URL: add_url_here
 
 ## To start the development server, run:
