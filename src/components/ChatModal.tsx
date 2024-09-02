@@ -1,4 +1,4 @@
-import { Box, Card, Modal } from "@mui/material";
+import { Box, Card, IconButton, Modal } from "@mui/material";
 import React from "react";
 import ChatMessages from "./ChatMessages";
 import { Close } from "@mui/icons-material";
@@ -33,11 +33,15 @@ export default function ChatModal({ open, setOpen }: ChatModalProps) {
               justifyContent: "flex-end",
             }}
           >
-            <Close
+            <IconButton
               sx={{ cursor: "pointer" }}
               onClick={() => setOpen(false)}
               data-testid="close-icon"
-            />
+
+              aria-label="close"
+            ><Close />
+            </IconButton>
+
           </Box>
           <ChatMessages />
         </Card>

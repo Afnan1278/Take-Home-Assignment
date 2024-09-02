@@ -15,7 +15,7 @@ npm run build
 npm test
 
 
-## What the Application Does
+## What Application Does
 The Chat Session application allows users to:
 
 View a list of chat sessions.

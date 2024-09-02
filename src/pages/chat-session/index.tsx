@@ -9,15 +9,16 @@ import useChatSessionQueries from "./queries/chat-session.query";
 import Toast from "../../components/Toast";
 import { Dayjs } from "dayjs";
 import ChatSessionList from "../../components/ChatSessionList";
-
+import FilterAltIcon from '@mui/icons-material/FilterAlt';
+import RestartAltIcon from '@mui/icons-material/RestartAlt';
 const ChatSession = () => {
   const [selectedStartDate, setSelectedStartDate] = useState<Dayjs | null>(null);
   const [selectedEndDate, setSelectedEndDate] = useState<Dayjs | null>(null);
 
   const { useGetChatSession } = useChatSessionQueries();
   const { isPending, isError, data, error } = useGetChatSession(
-    selectedStartDate ? selectedStartDate.format('YYYY-MM-DD') : undefined,
-    selectedEndDate ? selectedEndDate.format('YYYY-MM-DD') : undefined
+    selectedStartDate ? selectedStartDate.format('YYYY-MM-DD 00:00:00') : undefined,
+    selectedEndDate ? selectedEndDate.format('YYYY-MM-DD 23:59:59') : undefined
   );
 
   const [open, setOpen] = useState(false);
@@ -46,6 +47,10 @@ const ChatSession = () => {
   const handleChatClick = () => {
     setOpen(true);
   };
+  const handlerReset = () => {
+    setSelectedStartDate(null);
+    setSelectedEndDate(null);
+  };
 
   return (
     <>
@@ -60,15 +65,13 @@ const ChatSession = () => {
           <Typography variant="h4" fontWeight={700}>
             Chat Sessions
           </Typography>
-          <Box sx={{ py: 2 }}>
+          <Box sx={{ py: 2, display: "flex", gap: 2 }}>
             <Button variant="contained" color="primary" onClick={handleOpenModal}>
-              Filter
+              <FilterAltIcon /> &nbsp;  Filter
             </Button>
-            <Filter
-              open={modalOpen}
-              onClose={handleCloseModal}
-              onDateRangeChange={handleDateRangeChange}
-            />
+            <Button variant="contained" color="primary" onClick={handlerReset}>
+              <RestartAltIcon /> &nbsp;  Reset
+            </Button>
           </Box>
           <ChatSessionList
             isPending={isPending}
@@ -77,6 +80,11 @@ const ChatSession = () => {
           />
         </Box>
       </ChatMessageProvider>
+      <Filter
+        open={modalOpen}
+        onClose={handleCloseModal}
+        onDateRangeChange={handleDateRangeChange}
+      />
     </>
   );
 };
