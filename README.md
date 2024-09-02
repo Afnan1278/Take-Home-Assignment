@@ -1,46 +1,41 @@
-# Getting Started with Create React App
+# Chat Session
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is a web application for managing chat sessions. It provides features to view and filter chat sessions.
 
-## Available Scripts
+## To install the project dependencies, run:
+npm install
 
-In the project directory, you can run:
+## To start the development server, run:
+npm start
 
-### `npm start`
+### To build the application for production, run:
+npm run build
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### To run the tests, use:
+npm test
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
 
-### `npm test`
+## What the Application Does
+The Chat Session application allows users to:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+View a list of chat sessions.
+Filter chat sessions by date.
+View detailed information about each chat session.
+Manage chat sessions through a user-friendly interface.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Decisions Taken
+1. Technology Stack: The application is built using React for the frontend, with TypeScript for type safety. We use axios for making HTTP requests and dayjs for date manipulation.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+2. State Management: We use React's built-in state management for local component state and @tanstack/react-query for server state management.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+3. UI Components: The UI is built using Material-UI (@mui/material) for a consistent and responsive design.
 
-### `npm run eject`
+4. Testing: We use @testing-library/react and @testing-library/jest-dom for unit and integration tests to ensure the reliability of our components.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+5. Environment Configuration: Environment-specific configurations are managed using .env files. The backend URL is configured in the .env file.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+6. Code Quality: We enforce code quality and consistency using ESLint with the react-app and react-app/jest configurations.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
